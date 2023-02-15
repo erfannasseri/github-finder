@@ -1,26 +1,28 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
+import AlertContext from '../Context/Alert/AlertContext';
 import GithubContext from '../Context/Github/GithubContext';
 
 
 function UserSearch() {
     
-    const {users , searchUser , clearUsers} = useContext(GithubContext);
+    const {users , searchUser , clearUsers ,} = useContext(GithubContext);
+    const {setAlert} = useContext(AlertContext);
     const [Text, setText] = useState('');
     const changeHandler = (e)=>{setText(e.target.value)}
     const submitHandler = (e)=>{
         e.preventDefault()
 
         if (Text === '') {  
-            alert('Please enter something')
+            setAlert('Please enter something','error')
         }else {
             searchUser(Text)
             setText('')
         }
     }
   return (
-    <div className='grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 
-    md:grid-cols-2 mb-8 gap-8'>
+    <div className='grid grid-cols-1 xl:grid-cols-1 lg:grid-cols-1 
+    md:grid-cols-1 mb-8 gap-8 '>
         <div>
             <form onSubmit={submitHandler}>
                 <div className='form-control'>

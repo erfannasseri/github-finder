@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 function UserItem({user: {login, avatar_url}}) {
   return (
-    <Link to={`/users/${login}`}>
+    <Link to={`/user/${login}`}>
         <div className='card shadow-md compact side bg-base-100'>
             <div className="felx-row item-center space-x-4 card-body">
                 <div className="avatar">
