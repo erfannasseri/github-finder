@@ -50,7 +50,7 @@ function User() {
                         </figure>
                         <div className='card-body justify-end self-end'>
                             <h2 className="card-title mb-0">
-                                {repos.name}
+                                {name}
                             </h2>
                             <p>
                                 {login}
