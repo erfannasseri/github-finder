@@ -15,3 +15,36 @@ export const searchUser = async (text)=> {
     return items
 
 }
+
+export const getUser = async (login)=> {
+        
+    const response = await fetch (`${GITHUB_URL}/users/${login}`,{
+        headers:{
+            Authorization: `token ${GITHUB_TOKEN}`
+        }
+    })
+    if (response.status===404) {
+        window.location = '/notfound'
+    } else {
+
+        const data = await response.json()
+        
+        return data
+
+    }
+
+}
+
+export const getRepos = async (login)=> {
+    
+    const response = await fetch (`${GITHUB_URL}/users/${login}/repos`,{
+        headers:{
+            Authorization: `token ${GITHUB_TOKEN}`
+        }
+    })
+
+        const repos = await response.json()
+        
+    return repos
+
+}
